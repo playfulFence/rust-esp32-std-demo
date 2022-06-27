@@ -83,6 +83,7 @@ use esp_idf_sys::{esp, EspError};
 use display_interface_spi::SPIInterfaceNoCS;
 
 use embedded_graphics::mono_font::{ascii::FONT_10X20, MonoTextStyle};
+use bitmap_font::{tamzen::FONT_10x20, BitmapFont, TextStyle};
 use embedded_graphics::pixelcolor::*;
 use embedded_graphics::prelude::*;
 use embedded_graphics::primitives::*;
@@ -1093,7 +1094,7 @@ where
     Text::new(
         "Hello Rust!",
         Point::new(10, (display.bounding_box().size.height - 10) as i32 / 2),
-        MonoTextStyle::new(&FONT_10X20, Rgb565::WHITE.into()),
+        TextStyle::new(&FONT_10x20, BinaryColor::On),
     )
     .draw(display)?;
 
